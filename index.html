@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Monthly Playlist</title>
+  <script src = "app.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" type="text/css" href="site.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+  <br>
+  <div class ="container">
+      <div class ="section">
+          <p>
+            <i class="fas fa-music" style="color: rgb(182, 112, 223);"aria-hidden="true"></i> Please authenticate your Spotify account below.
+          </p>
+          <hr class="section-line">
+
+          <br>
+          <button id = "authButton" onclick = "authorization()">
+            <i class="fa fa-rss fa-xs" style="color: rgb(255, 255, 255);"aria-hidden="true"></i> Login
+          </button>
+          <br>
+          <br>
+          <hr class="section-line">
+
+      </div>
+
+      <div class ="section">
+          <p>
+            <i class="fa fa-headphones" style="color: rgb(182, 112, 223);"aria-hidden="true"></i> Choose a song amount!
+          </p>
+          <p class="choose_number">
+            Number of songs: <span id = "songAmount">20</span>
+          </p>
+          <input type = "range" min = "1" max = "50" value = "20" class = "slider" id = "slider">
+          <hr class="section-line">
+
+          <br>
+          <button id = "seeSongsButton" onclick = getTopTracks(getSongAmount())>
+            <i class="fa fa-rss fa-xs" style="color: rgb(255, 255, 255);"aria-hidden="true"></i> See Songs
+          </button>
+          <br>
+          <br>
+          <hr class="section-line">
+
+      </div>
+
+      <div class = "section">
+          <p>
+            <i class="fa fa-play" style="color: rgb(182, 112, 223);"aria-hidden="true"></i> Create A Playlist!
+          </p>
+          <hr class="section-line">
+          <br>
+          <button id = "createPlaylistButton" onclick = "createPlaylist()">
+            <i class ="fa fa-rss fa-xs" style = "color: rgb(255, 255, 255);" aria-hidden ="true"></i> Create Playlist
+          </button>
+          <br>
+          <br>
+
+      </div>
+    </div>
+
+    <div>
+      <br>
+      <div>
+        <div id = "results-header"></div>
+        <br>
+        <div id = "results"></div>
+      </div>
+    </div>
+    
+    <script>
+      const slider = document.getElementById('slider');
+      const songAmount = document.getElementById('songAmount');
+  
+      slider.addEventListener('input', function() {
+        songAmount.textContent = this.value;
+      });
+    </script>
+</body>
+
+</html>
